@@ -19,5 +19,18 @@ class BinarySearchTreeTest < Minitest::Test
     assert_nil tree.head
   end
 
+  def test_it_can_insert_a_head_node
+    tree = BinarySearchTree.new
+    result = tree.insert_head_node(61, "Bill & Ted's Excellent Adventure")
+
+    assert_instance_of Node, result
+    assert_equal 61, result.score
+    assert_equal "Bill & Ted's Excellent Adventure", result.title
+    assert_nil result.node_left
+    assert_nil result.node_right
+  end
+
+
+
 
 end
