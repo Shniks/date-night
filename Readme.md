@@ -3,7 +3,7 @@ Project Title: Date Night
 Data Structure: Binary Search Trees
 Author: Nikhil Shahi
 Date: July 5, 2022
-Test Framework: MiniTest
+Test Framework: Minitest
 Test Coverage: 100%
 ---
 
