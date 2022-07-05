@@ -10,9 +10,8 @@ class BinarySearchTreeTest < Minitest::Test
   def test_if_it_exists
     bst = BinarySearchTree.new
 
-    assert_instance_of BinarySearchTree, bst 
+    assert_instance_of BinarySearchTree, bst
   end
-
 
 
 end

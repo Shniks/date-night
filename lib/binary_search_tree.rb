@@ -6,5 +6,4 @@ class BinarySearchTree
 
   end
 
-
-end 
+end
