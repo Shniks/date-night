@@ -9,6 +9,13 @@ class BinarySearchTreeTest < Minitest::Test
 
   def setup
     @tree = BinarySearchTree.new
+    @movies_list = { 61 => ["Bill & Ted's Excellent Adventure", 0],
+    16 => ["Johnny English", 1], 92 => ["Sharknado 3", 1],
+    50 => ["Hannibal Buress: Animal Furnace", 2], 40 => ["Transformers1", 3],
+    45 => ["Transformers2", 4], 55 => ["Transformers3", 3],
+    94 => ["Transformers4", 2], 90 => ["Transformers5", 2],
+    35 => ["Transformers6", 4], 98 => ["Transformers7", 3],
+    70 => ["Transformers8", 3] }
   end
 
   def test_if_it_exists
@@ -107,6 +114,15 @@ class BinarySearchTreeTest < Minitest::Test
     refute_equal ({"Johnny English"=>16}), @tree.max
   end
 
+  def test_it_can_find_movie_with_highest_score_in_list_of_12_movies
+    @movies_list.each do |k, v|
+      @tree.insert(k, v[0])
+    end
+
+    assert_equal ({"Transformers7"=>98}), @tree.max
+    refute_equal ({"Johnny English"=>16}), @tree.max
+  end
+
   def test_it_can_find_movie_with_lowest_score
     @tree.insert(61, "Bill & Ted's Excellent Adventure")
     @tree.insert(16, "Johnny English")
@@ -117,18 +133,48 @@ class BinarySearchTreeTest < Minitest::Test
     refute_equal ({"Sharknado 3"=>92}), @tree.min
   end
 
+  def test_it_can_find_movie_with_lowest_score_in_list_of_12_movies
+    @movies_list.each do |k, v|
+      @tree.insert(k, v[0])
+    end
+
+    assert_equal ({"Johnny English"=>16}), @tree.min
+    refute_equal ({"Transformers2"=>45}), @tree.min
+  end
+
   def test_it_can_sort_movies_in_ascending_order
     @tree.insert(61, "Bill & Ted's Excellent Adventure")
     @tree.insert(16, "Johnny English")
     @tree.insert(92, "Sharknado 3")
     @tree.insert(50, "Hannibal Buress: Animal Furnace")
 
-    result = [{"Johnny English"=>16},
-              {"Hannibal Buress: Animal Furnace"=>50},
-              {"Bill & Ted's Excellent Adventure"=>61},
-              {"Sharknado 3"=>92}]
+    expected = [{"Johnny English"=>16},
+                {"Hannibal Buress: Animal Furnace"=>50},
+                {"Bill & Ted's Excellent Adventure"=>61},
+                {"Sharknado 3"=>92}]
 
-    assert_equal result, tree.sort
+    assert_equal expected, @tree.sort
+  end
+
+  def test_it_can_sort_tree_with_twelve_values
+    @movies_list.each do |k, v|
+      @tree.insert(k, v[0])
+    end
+
+    expected = [{"Johnny English"=>16},
+                {"Transformers6"=>35},
+                {"Transformers1"=>40},
+                {"Transformers2"=>45},
+                {"Hannibal Buress: Animal Furnace"=>50},
+                {"Transformers3"=>55},
+                {"Bill & Ted's Excellent Adventure"=>61},
+                {"Transformers8"=>70},
+                {"Transformers5"=>90},
+                {"Sharknado 3"=>92},
+                {"Transformers4"=>94},
+                {"Transformers7"=>98}]
+
+    assert_equal expected, @tree.sort
   end
 
 end
