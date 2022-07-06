@@ -20,13 +20,26 @@ class BinarySearchTreeTest < Minitest::Test
   end
 
   def test_it_can_insert_a_head_node
-    result = @tree.insert_head_node(61, "Bill & Ted's Excellent Adventure")
+    new_node = @tree.insert_head_node(61, "Bill & Ted's Excellent Adventure")
 
-    assert_instance_of Node, result
-    assert_equal 61, result.score
-    assert_equal "Bill & Ted's Excellent Adventure", result.title
-    assert_nil result.node_left
-    assert_nil result.node_right
+    assert_instance_of Node, new_node
+    assert_equal 61, new_node.score
+    assert_equal "Bill & Ted's Excellent Adventure", new_node.title
+    assert_nil new_node.node_left
+    assert_nil new_node.node_right
+  end
+
+  def test_it_can_find_depth_of_node
+    new_node = @tree.insert(61, "Bill & Ted's Excellent Adventure")
+
+    assert_equal 0, new_node
+  end
+
+  def test_it_can_insert_a_second_node_to_the_left
+    @tree.insert(61, "Bill & Ted's Excellent Adventure")
+    new_node = @tree.insert(16, "Johnny English")
+
+    assert_equal 1, new_node
   end
 
 
