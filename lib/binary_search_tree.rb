@@ -106,5 +106,12 @@ class BinarySearchTree
     {current_node.title => current_node.score}
   end
 
+  def min(current_node = @head)
+    until current_node.node_left.nil?
+      current_node = current_node.node_left
+    end
+    {current_node.title => current_node.score}
+  end
+
 
 end
