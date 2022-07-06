@@ -135,37 +135,6 @@ Where the return value is the number of movies inserted into the tree. If a scor
 
 Example file is provided in this repo (movies.txt)
 
-### ```health```
-
-Report on the health of the tree by summarizing the number of child nodes (nodes beneath each node) at a given depth. For health, we’re worried about 3 values:
-
-- Score of the node
-- Total number of child nodes including the current node
-- Percentage of all the nodes that are this node or it’s children
-
-```ruby
-tree.insert(98, "Animals United")
-tree.insert(58, "Armageddon")
-tree.insert(36, "Bill & Ted's Bogus Journey")
-tree.insert(93, "Bill & Ted's Excellent Adventure")
-tree.insert(86, "Charlie's Angels")
-tree.insert(38, "Charlie's Country")
-tree.insert(69, "Collateral Damage")
-tree.health(0)
-=> [[98, 7, 100]]
-tree.health(1)
-=> [[58, 6, 85]]
-tree.health(2)
-=> [[36, 2, 28], [93, 3, 42]]
-```
-
-Where the return value is an ```Array``` with one nested array per node at that level. The nested array is:
-
-```ruby
-[score in the node, 1 + number of child nodes, floored percentage of (1+children) over the total number of nodes]
-```
-When the percentages of two nodes at the same level are dramatically different, like ```28``` and ```42``` above, then we know that this tree is starting to become unbalanced.
-
 ## Extensions
 
 ### ```leaves```
@@ -184,4 +153,15 @@ What is the height (aka the maximum depth) of the tree?
 ```ruby
 tree.height
 # => 4
+```
+
+### ```Deleting Nodes```
+
+Remove a specified piece score from the tree:
+
+```ruby
+tree.delete(30)
+# => 30
+tree.delete(101)
+# => nil
 ```
