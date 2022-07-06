@@ -1,4 +1,5 @@
 require_relative 'node'
+require 'csv'
 require 'pry'
 
 class BinarySearchTree
@@ -147,6 +148,15 @@ class BinarySearchTree
     else head.node_left.nil?
       [sort_subtree_descending(head.node_right), head].flatten
     end
+  end
+
+  def load(file)
+    count = 0
+    CSV.foreach(file) do |row|
+      insert(row[0].to_i, row[1])
+      count += 1
+    end
+    count
   end
 
 end
