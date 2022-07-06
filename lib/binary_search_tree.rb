@@ -9,10 +9,6 @@ class BinarySearchTree
     @head = nil
   end
 
-  def insert_head_node(score, title, parent = nil)
-    @head = Node.new(score, title, head)
-  end
-
   def insert(score, title, parent = nil)
     if head.nil?
       insert_head_node(score, title, parent)
@@ -22,6 +18,10 @@ class BinarySearchTree
       @depth = 0
       traverse_direction(score, title, current_node)
     end
+  end
+
+  def insert_head_node(score, title, parent = nil)
+    @head = Node.new(score, title, head)
   end
 
   def traverse_direction(score, title, current_node)
