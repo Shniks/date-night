@@ -99,4 +99,12 @@ class BinarySearchTree
     end
   end
 
+  def max(current_node = @head)
+    until current_node.node_right.nil?
+      current_node = current_node.node_right
+    end
+    {current_node.title => current_node.score}
+  end
+
+
 end
