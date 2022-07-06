@@ -60,6 +60,20 @@ class BinarySearchTreeTest < Minitest::Test
     refute_equal 1, new_node
   end
 
+  def test_it_can_insert_and_find_depth_of_eighth_node
+    @tree.insert(61, "Bill & Ted's Excellent Adventure")
+    @tree.insert(16, "Johnny English")
+    @tree.insert(92, "Sharknado 3")
+    @tree.insert(50, "Hannibal Buress: Animal Furnace")
+    @tree.insert(40, "Transformers 1")
+    @tree.insert(45, "Transformers 2")
+    @tree.insert(55, "Transformers 3")
+    new_node = @tree.insert(33, "Transformers 4")
+
+    assert_equal 4, new_node
+    refute_equal 2, new_node
+  end
+
 
 
 
