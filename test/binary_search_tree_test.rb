@@ -177,4 +177,25 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal expected, @tree.sort
   end
 
+  def test_it_can_sort_tree_with_twelve_values_in_descending_order
+    @movies_list.each do |k, v|
+      @tree.insert(k, v[0])
+    end
+
+    expected = [{"Transformers7"=>98},
+                {"Transformers4"=>94},
+                {"Sharknado 3"=>92},
+                {"Transformers5"=>90},
+                {"Transformers8"=>70},
+                {"Bill & Ted's Excellent Adventure"=>61},
+                {"Transformers3"=>55},
+                {"Hannibal Buress: Animal Furnace"=>50},
+                {"Transformers2"=>45},
+                {"Transformers1"=>40},
+                {"Transformers6"=>35},
+                {"Johnny English"=>16}]
+
+    assert_equal expected, @tree.sort_descending
+  end
+
 end

@@ -133,4 +133,24 @@ class BinarySearchTree
     end
   end
 
+  def sort_descending
+    sort_subtree_descending(@head).map do |node|
+      {node.title => node.score}
+    end
+  end
+
+  def sort_subtree_descending(head)
+    return [] if head.nil?
+    if head.node_left && head.node_right
+      [sort_subtree_descending(head.node_right), head,
+        sort_subtree_descending(head.node_left)].flatten
+    elsif head.node_right.nil?
+      [head, sort_subtree_descending(head.node_left)].flatten
+    elsif head.node_left.nil?
+      [sort_subtree_descending(head.node_right), head].flatten
+    else
+      [head]
+    end
+  end
+
 end
