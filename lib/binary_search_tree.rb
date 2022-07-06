@@ -62,5 +62,22 @@ class BinarySearchTree
     traverse_direction(score, title, current_node)
   end
 
+  def include?(score, current_node = head)
+    if current_node.nil?
+      false
+    elsif current_node.score == score
+      true
+    else
+      include_traverse(score, current_node)
+    end
+  end
+
+  def include_traverse(score, current_node)
+    if score < current_node.score
+      include?(score, current_node.node_left)
+    else
+      include?(score, current_node.node_right)
+    end
+  end
 
 end
