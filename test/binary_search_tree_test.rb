@@ -117,4 +117,18 @@ class BinarySearchTreeTest < Minitest::Test
     refute_equal ({"Sharknado 3"=>92}), @tree.min
   end
 
+  def test_it_can_sort_movies_in_ascending_order
+    @tree.insert(61, "Bill & Ted's Excellent Adventure")
+    @tree.insert(16, "Johnny English")
+    @tree.insert(92, "Sharknado 3")
+    @tree.insert(50, "Hannibal Buress: Animal Furnace")
+
+    result = [{"Johnny English"=>16},
+              {"Hannibal Buress: Animal Furnace"=>50},
+              {"Bill & Ted's Excellent Adventure"=>61},
+              {"Sharknado 3"=>92}]
+
+    assert_equal result, tree.sort
+  end
+
 end
