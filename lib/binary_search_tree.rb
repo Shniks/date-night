@@ -113,7 +113,7 @@ class BinarySearchTree
     {current_node.title => current_node.score}
   end
 
-  def sort
+  def sort #sorts ascending
     sort_subtree(@head).map do |node|
       {node.title => node.score}
     end
@@ -126,14 +126,12 @@ class BinarySearchTree
         sort_subtree(head.node_right)].flatten
     elsif head.node_right.nil?
       [sort_subtree(head.node_left), head].flatten
-    elsif head.node_left.nil?
+    else head.node_left.nil?
       [head, sort_subtree(head.node_right)].flatten
-    else
-      [head]
     end
   end
 
-  def sort_descending
+  def sort_descending #sorts descending (not part of project expectations)
     sort_subtree_descending(@head).map do |node|
       {node.title => node.score}
     end
@@ -146,10 +144,8 @@ class BinarySearchTree
         sort_subtree_descending(head.node_left)].flatten
     elsif head.node_right.nil?
       [head, sort_subtree_descending(head.node_left)].flatten
-    elsif head.node_left.nil?
+    else head.node_left.nil?
       [sort_subtree_descending(head.node_right), head].flatten
-    else
-      [head]
     end
   end
 
