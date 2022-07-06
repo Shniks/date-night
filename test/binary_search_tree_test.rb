@@ -198,4 +198,8 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal expected, @tree.sort_descending
   end
 
+  def test_it_can_load_movies_from_a_text_file
+    assert_equal 99, @tree.load('./movies.txt')
+  end
+
 end
