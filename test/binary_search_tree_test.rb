@@ -222,4 +222,10 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal 5, @tree.leaves
   end
 
+  def test_how_many_nodes_have_no_left_or_right_value_for_empty_tree
+    @tree
+
+    assert_equal 0, @tree.leaves
+  end
+
 end
