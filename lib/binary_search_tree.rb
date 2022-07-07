@@ -165,7 +165,16 @@ class BinarySearchTree
       return 1
     else
       return leaves(head.node_left) + leaves(head.node_right)
-    end  
+    end
+  end
+
+  def height(head = @head)
+    return -1 if head.nil?
+    if height(head.node_left) > height(head.node_right)
+      return height(head.node_left) + 1
+    else
+      return height(head.node_right) + 1
+    end
   end
 
 end
