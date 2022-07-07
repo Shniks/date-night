@@ -159,4 +159,13 @@ class BinarySearchTree
     count
   end
 
+  def leaves(head = @head)
+    return 0 if head.nil?
+    if head.node_left.nil? && head.node_right.nil?
+      return 1
+    else
+      return leaves(head.node_left) + leaves(head.node_right)
+    end  
+  end
+
 end

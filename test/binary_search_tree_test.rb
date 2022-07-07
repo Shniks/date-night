@@ -211,7 +211,15 @@ class BinarySearchTreeTest < Minitest::Test
     @tree.insert(38, "Charlie's Country")
     @tree.insert(69, "Collateral Damage")
 
-    assert_equal 2, @tree.leaves 
+    assert_equal 2, @tree.leaves
+  end
+
+  def test_how_many_nodes_have_no_left_or_right_value_for_twelve_values
+    @movies_list.each do |k, v|
+      @tree.insert(k, v[0])
+    end
+
+    assert_equal 5, @tree.leaves
   end
 
 end
