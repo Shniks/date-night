@@ -176,5 +176,5 @@ class BinarySearchTree
       return height(head.node_right) + 1
     end
   end
-
+  
 end

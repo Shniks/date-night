@@ -154,14 +154,3 @@ What is the height (aka the maximum depth) of the tree?
 tree.height
 # => 4
 ```
-
-### ```Deleting Nodes```
-
-Remove a specified piece score from the tree:
-
-```ruby
-tree.delete(30)
-# => 30
-tree.delete(101)
-# => nil
-```
